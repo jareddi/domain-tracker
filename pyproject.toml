@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "domain-tracker"
+version = "0.1.0"
+description = "Takes micromagnetic simulation output (.ovf files) and scrapes for perpendicular domains and their properties."
+authors = [
+    { name="Jacques Reddinger", email="jareddi98@gmail.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11.12"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "ovf2io",
+    "pyvista",
+    "scipy",
+    "opencv-python"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
