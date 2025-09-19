@@ -1,25 +1,23 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"
 
-[project]
-name = "domain-tracker"
+[tool.poetry]
+name = "domain_tracker"
 version = "0.1.0"
 description = "Takes micromagnetic simulation output (.ovf files) and scrapes for perpendicular domains and their properties."
-authors = [
-    { name="Jacques Reddinger", email="jareddi98@gmail.com" }
-]
+authors = ["Jacques Reddinger <jareddi98@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-license = { file = "LICENSE" }
-requires-python = ">=3.11.12"
-dependencies = [
-    "matplotlib",
-    "numpy",
-    "ovf2io",
-    "pyvista",
-    "scipy",
-    "opencv-python"
+requires-python = ">=3.11,<3.12.0"
+packages = [
+    { include = "domain_tracker", from = "src" }
 ]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.poetry.dependencies]
+numpy = ">=1.24"
+scipy = "^1.0"
+vtk = "^9.4"
+pyvista = { version = "==0.46.3", extras = ["jupyter"] }
+opencv-python = ">=4.12"
+ovf2io = "^0.10"

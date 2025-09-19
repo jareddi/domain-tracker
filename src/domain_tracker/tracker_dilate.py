@@ -1,4 +1,4 @@
-from tracker_utils import *
+from .tracker_utils import *
 from scipy.ndimage import distance_transform_edt
 
 def dilate_domain_pbc(domains_z, mz, max_dist = None, mz_thresh = None):

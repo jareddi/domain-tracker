@@ -1,0 +1,13 @@
+name: domaintracker
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - vtk=9.4
+  - pyvista
+  - numpy
+  - opencv
+  - pip
+  - pip:
+      - ovf2io

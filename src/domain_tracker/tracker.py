@@ -1,9 +1,5 @@
-from tracker_utils import *
-from tracker_contours import *
-from tracker_dilate import *
-from tracker_properties import *
-from tracker_mag import *
-from tracker_plotting import *
+from .tracker_contours import *
+from .tracker_plotting import *
 import itertools
 
 """

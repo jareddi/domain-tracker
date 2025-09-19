@@ -1,4 +1,4 @@
-from tracker_utils import *
+from .tracker_utils import *
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import pyvista as pv
