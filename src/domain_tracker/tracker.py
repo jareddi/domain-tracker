@@ -31,6 +31,8 @@ class Domain:
         self.energy = {}
 
     def get_projection(self, proj_dict):
+        self.properties['aspect_ratio'] = proj_dict['properties']['aspect_ratio']
+        del proj_dict['properties']['aspect_ratio']
         self.proj = proj_dict
 
     def add_layer(self, z, key_z, domain_z):
@@ -391,7 +393,7 @@ def find_domains(fnames, start_stop = None, energy=True, dil_dist=100, dil_mz_th
 %%%%%%%%%%%%%%%%%%%%%%%
 """
 
-def match_domain(domain, candidates, iou_thresh=0.8, con_thresh=0.8):
+def match_domain(domain, candidates, iou_thresh=0.6, con_thresh=0.6):
     best_match = None
     best_score = 0
     children = []
@@ -449,6 +451,7 @@ def track_domains_across_frames(frames, reset=False, iou_thresh=0.8, con_thresh=
                 best_match.family_ids.extend(domain.family_ids)
             if children:
                 for child in children:
+                    child.global_id = next(next_global_id)
                     domain.child_ids.append(child.global_id)
                     child.parent_ids.append(domain.global_id)
                     child.family_ids.extend(domain.family_ids)
